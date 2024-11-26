@@ -24,7 +24,7 @@ jobs:
 
             COMMIT_MESSAGES=$(git log origin/${BASE_BRANCH}..origin/${HEAD_BRANCH} --pretty=format:"%s" | head -n 1)
 
-            if echo "$COMMIT_MESSAGES" | grep -q "generate modelcards"; then
+            if echo "$COMMIT_MESSAGES" | grep -q "modelcards"; then
               echo "exists=true" >> $GITHUB_ENV
             else
               echo "exists=false" >> $GITHUB_ENV
@@ -65,7 +65,7 @@ jobs:
           run: |
             git config --local user.email "action@github.com"
             git config --local user.name "GitHub Action"
-            git add .
-            git commit -m "Model Cards generated"
+            git add docs/modelcards/
+            git commit -m "Model Cards generated" || echo "No changes to commit"
             git pull --rebase origin ${{ github.head_ref }}
             git push origin HEAD:${{ github.head_ref }}
