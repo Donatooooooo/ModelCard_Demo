@@ -9,6 +9,7 @@ structure ESNE:
       file: use.md
   - Evaluation
 
+
 structure Istological Grading System:
   - Description:
       file: IGSdetails.md
