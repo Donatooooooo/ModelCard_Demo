@@ -18,9 +18,7 @@ jobs:
         - name: Get commit messages
           id: check_comment
           run: |
-            git fetch origin ${{ github.head_ref }}:${{ github.head_ref }}
-
-            COMMIT=$(git log --no-merges -1 --pretty=format:"%s")
+            COMMIT=$(jq -r '.after' <<< "${{ github.event }}" || echo "")
             echo "Commit messages: $COMMIT"
 
             if echo "$COMMIT" | grep -q "generate modelcards"; then
