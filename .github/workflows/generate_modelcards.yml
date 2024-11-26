@@ -13,15 +13,21 @@ jobs:
 
     steps:
         - name: Checkout code
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - name: Get commit messages
-          id: check_comment
+        - name: Set up GitHub CLI
+          uses: actions/setup-gh-cli@v2
+    
+        - name: Fetch PR commits and check messages
+          id: check_commits
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           run: |
-            COMMIT=$(jq -r '.after' <<< "${{ github.event }}" || echo "")
-            echo "Commit messages: $COMMIT"
-
-            if echo "$COMMIT" | grep -q "generate modelcards"; then
+            echo "Fetching commits from the pull request..."
+            COMMITS=$(gh pr view ${{ github.event.pull_request.number }} --json commits -q '.commits[].commit.message')
+            echo "Commit messages: $COMMITS"
+    
+            if echo "$COMMITS" | grep -q "generate modelcards"; then
               echo "A commit message contains the specific text."
               echo "exists=true" >> $GITHUB_ENV
             else
