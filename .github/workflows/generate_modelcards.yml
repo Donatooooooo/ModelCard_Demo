@@ -23,6 +23,7 @@ jobs:
             COMMIT=$(git log -1 --pretty=format:"%s")
             echo "Commit messages: $COMMIT_MESSAGES"
 
+            
             if echo "$COMMIT" | grep -q "generate modelcards"; then
               echo "A commit message contains the specific text."
               echo "exists=true" >> $GITHUB_ENV
