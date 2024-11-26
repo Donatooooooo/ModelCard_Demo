@@ -23,7 +23,7 @@ jobs:
             HEAD_BRANCH=${{ github.head_ref }}
             BASE_BRANCH=${{ github.base_ref }}
 
-            COMMIT_MESSAGES=$(git log origin/${BASE_BRANCH}..origin/${HEAD_BRANCH} --pretty=format:"%s" | tail -n 1)
+            COMMIT_MESSAGES=$(git log origin/${BASE_BRANCH}..origin/${HEAD_BRANCH} --pretty=format:"%s" | head -n 1)
             echo "Commit messages: $COMMIT_MESSAGES"
 
             if echo "$COMMIT_MESSAGES" | grep -q "generate modelcards"; then
