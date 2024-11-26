@@ -35,10 +35,10 @@ class Logger:
             self.output += "```\n"
 
         if self.alerts:
-            self.out("⚠️ Warnings", self.alerts)
+            self.out("⚠️ Warnings", sorted(self.alerts))
             
         if self.errors:
-            self.out("❌ Errors", self.errors)
+            self.out("❌ Errors", sorted(self.errors))
             
         print(self.output)
 

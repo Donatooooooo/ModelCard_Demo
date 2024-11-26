@@ -34,7 +34,7 @@ class ModelCardGenerator:
             latest = True
             modelVersions = self.client.search_model_versions(f"name='{name}'")
             for model in modelVersions:
-                if "champion" in model.aliases:
+                if "champion" in model.tags.values():
                     models.append(model)
                     if not model.version == self.client.get_latest_versions(name)[0].version:
                         modelInfo = f"_{model.name} v{model.version}_"
