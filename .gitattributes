@@ -1,1 +1,2 @@
 *.jinja linguist-language=jinja
+Makefile linguist-vendored
