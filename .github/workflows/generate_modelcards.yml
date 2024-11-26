@@ -21,9 +21,8 @@ jobs:
             git fetch origin ${{ github.head_ref }}:${{ github.head_ref }}
 
             COMMIT=$(git log -1 --pretty=format:"%s")
-            echo "Commit messages: $COMMIT_MESSAGES"
+            echo "Commit messages: $COMMIT"
 
-            
             if echo "$COMMIT" | grep -q "generate modelcards"; then
               echo "A commit message contains the specific text."
               echo "exists=true" >> $GITHUB_ENV
