@@ -1,0 +1,8 @@
+# structure <model_name>:
+#   - <your_section>:
+#       file: <your_file>.md
+#   - General Information
+#   - Training Details
+#   - <your_section>:
+#       file: <your_file>.md
+#   - Evaluation
