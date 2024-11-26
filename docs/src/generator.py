@@ -34,12 +34,13 @@ class ModelCardGenerator:
             latest = True
             modelVersions = self.client.search_model_versions(f"name='{name}'")
             for model in modelVersions:
-                if "champion" in model.tags.values():
-                    models.append(model)
-                    if not model.version == self.client.get_latest_versions(name)[0].version:
-                        modelInfo = f"_{model.name} v{model.version}_"
-                        self.output.warning(f" {modelInfo}: `@ Champion` model is not the latest")
-                    latest = False
+                for key, value in model.tags.items():
+                    if key == "stage" and value == "champion":
+                        models.append(model)
+                        if not model.version == self.client.get_latest_versions(name)[0].version:
+                            modelInfo = f"_{model.name} v{model.version}_"
+                            self.output.warning(f" {modelInfo}: `@ Champion` model is not the latest")
+                        latest = False
             if latest:
                 latestVersion = self.client.get_latest_versions(name)[0]
                 models.append(latestVersion)
@@ -127,7 +128,7 @@ class ModelCardGenerator:
             return None
 
         if config:
-            instance = templateRender("title_template.md", self.title)
+            instance = templateRender("title_template.jinja", self.title)
         
             processed = set()
             for section in config.getSections():

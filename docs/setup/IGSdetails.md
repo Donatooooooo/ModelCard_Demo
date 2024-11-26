@@ -1,0 +1,3 @@
+Istological Grading System is designed to tackle a medical classification task with the goal of diagnosing breast cancer. This model uses a set of features extracted from medical images and clinical data, such as the size and shape of the tumor mass, to determine whether a tumor is malignant or benign.
+
+The classification is based on a series of quantitative measurements, which are processed by the model to accurately predict the nature of the tumor. The features analyzed include parameters such as the mass size, its shape, density, and other relevant morphological properties.

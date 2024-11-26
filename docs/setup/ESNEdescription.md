@@ -1,0 +1,5 @@
+Event Severity Network Estimator (ESNE) is designed to address a regression task aimed at predicting a BaseScore value based on network event data. This model utilizes a set of features extracted from a network event dataset to calculate the BaseScore for each new network event.
+
+The prediction is based on a series of quantitative measurements, which are processed by the model to accurately estimate the BaseScore. The features analyzed include parameters such as attack type, malware indicators, anomaly scores, and various network-related information like traffic type, firewall logs, and system information. These data are processed using regression techniques to provide an accurate prediction of the BaseScore for each network event.
+
+More info about BaseScore: https://nvd.nist.gov/vuln-metrics/cvss
