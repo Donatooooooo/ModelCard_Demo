@@ -1,22 +1,21 @@
-structure ESNE:
-  - Description:
-      file: ESNEdescription.md
-  - General Information
-  - Training Details
-  - How to use:
-      file: howtouse.md
-  - Intended usage:
-      file: use.md
-  - Evaluation
+# structure ESNE:
+#   - Description:
+#       file: ESNEdescription.md
+#   - General Information
+#   - Training Details
+#   - How to use:
+#       file: howtouse.md
+#   - Intended usage:
+#       file: use.md
+#   - Evaluation
 
-
-structure Istological Grading System:
-  - Description:
-      file: IGSdetails.md
-  - General Information
-  - How to use:
-      file: howtouse.md
-  - Training Details
-  - Evaluation
-  - Limitations:
-      file: limitation.md
+# structure Istological Grading System:
+#   - Description:
+#       file: IGSdetails.md
+#   - General Information
+#   - How to use:
+#       file: howtouse.md
+#   - Training Details
+#   - Evaluation
+#   - Limitations:
+#       file: limitation.md
